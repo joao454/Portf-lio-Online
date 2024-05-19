@@ -26,7 +26,8 @@
       }
 
       header{
-        background-image: linear-gradient(rgb(77, 75, 75), #898e91);      }
+        background-image: linear-gradient(rgb(77, 75, 75), #898e91);    
+      }
 
       /*Parametrização da imagem que vai estar no cabeçalho como perfil*/
       #img_header{
@@ -45,7 +46,6 @@
           text-align: center; /*Centralizar o texto*/
           padding: 20px; /*Distância interna*/
           position: relative; /*O posicionamento do rodapé fica relativo ao elemento acima*/
-          width: 100%;
           bottom: 0;
           transition: background-color 0.3s ease; /*Coloca uma transição gradual da cor de fundo de 0,3 seg (quando a pseudoclasse hover estiver mudando a cor de fundo)*/
       }
@@ -55,7 +55,7 @@
       }
 
       /*Parâmetros específicos para o primeiro parágrafo*/
-      .first-h1 {
+      .nome-header {
           margin-top: 0px;
           margin-bottom: -20px;
       }
@@ -147,9 +147,6 @@
         text-align: center;
       }
 
-
-
-
       button[type="submit"] {
           padding: 10px 20px; /* Espaçamento interno */
           background-color: #5e89df; /* Cor de fundo do botão */
@@ -220,7 +217,7 @@
     <header class="container">
         <img id="img_header" src="img/perfil.jpg"> <!--imagem de perfil com a formatação especificada -->
         <div>
-        <h1 class="first-h1">João Bento da Silva Filho</h1> <!--Textos do cabeçalho-->
+        <h1 class="nome-header">João Bento da Silva Filho</h1> <!--Textos do cabeçalho-->
         <h3>20 anos <br>Goiânia, Jardim América</h3>
         </div>
         <div class="menu">  <!--Menu de navegação (optei por colocar na tag do header mesmo por se tratar de uma estrutura simples e pequena)-->
@@ -275,7 +272,7 @@
       <div style="display: flex;">
       <div style="text-align: justify; margin-left: 120px; width: 65%; margin-right: 100px;">
         <h2>Propriedades Intelectuais</h2>
-        <p><span class="bolinha"></span>Conhecimento em Auditoria contábil;</p>
+        <p><span class="bolinha"></span>Conhecimento em Auditoria contábil;</p> <!--Elemento de span para simular uma bolinha de lista não ordenada-->
         <p><span class="bolinha"></span>Conhecimento em Contabilidade;</p>
         <p><span class="bolinha"></span>Conhecimento em elaboração e auditoria de Demonstrações Contábeis e notas explicativas;</p>
         <p><span class="bolinha"></span>Conhecimento em Conciliação Contábil;</p>
@@ -346,7 +343,7 @@
     <section>
       <h1 class="titulo" ID="Sobre mim">Sobre Mim</h1>
       <div style="display: flex; ">
-        <img style="height: 700px; margin-top: 30px; border-radius: 30%;" src="img/perfil5.jpg">
+        <img style="height: 600px; margin-top: 90px; border-radius: 30%;" src="img/perfil5.jpg">
         <div class="caixa-texto">
           <h1 class="topico">Quem Sou?</h1>
           <p>Sou um Auditor Contábil apaixonado pela tecnologia da informação, e que busco constantemente aprender e aprimorar minhas habilidades para criar experiências digitais criativas e funcionais. Estou convicto que a combinação entre minha paixão pela tecnologia e minhas experiências profissionais me proporcionam uma perspectiva única, permitindo-me abordar desafios de forma criativa e abrangente. Minha curiosidade em entender as complexidades da mente humana me levou a estudar psicologia e neurociência como um hobby, buscando enriquecer minha compreensão do mundo ao meu redor. Acredito que foco e determinação é a chave para o sucesso. 
@@ -360,7 +357,7 @@
       </div>
 
       <div style="display: flex;">
-        <div style="text-align: justify; margin-left: 180px; width: 700px; margin-right: 120px;">
+        <div style="text-align: justify; margin-left: 100px; width: 850px; margin-right: 80px;">
           <h1 class="topico" style="margin-top: 30px;">Hobbies</h1>
           <h4>Música</h4>
           <p>
@@ -376,40 +373,40 @@
           Aos 18 anos de idade, me despedi da cidade de meus pais e decidi trilhar meu próprio destino. Com coragem e determinação, tomei a decisão de enfrentar os desafios e obstáculos dessa jornada, embarcando em uma busca por autoconhecimento e independência. Foi um passo audacioso, mas fundamental para meu crescimento pessoal e profissional. Ao me lançar nessa aventura, estava disposto a aprender, crescer e explorar novas oportunidades que a vida tinha a oferecer. 
           </p>
         </div>
-        <img style="height: 950px;" src="img/perfil6.png">
+        <img style="height: 950px; margin-top: 70px;" src="img/perfil6.png">
         </div>
     </section>
 
 
-      <section id="Contato">
-        <h1 class="titulo">Contato</h1>
-        <div class="field caixa-texto-centralizada">
-        <input type="text" id="nome" placeholder="...">
-        <label for="nome">Nome</label>
-        </div>
-        <div class="field caixa-texto-centralizada">
-        <input type="text" id="email" placeholder="...">
-        <label for="nome">E-mail</label>
-        </div>
-        <div class="field caixa-texto-centralizada">
-        <input type="text" id="mensagem" placeholder="..."> 
-        <label for="nome">Mensagem</label>
-        </div>
-        <h5 style="width: 700px; text-align: justify; align-items: center; margin: 0 auto;">"NÃO SEJA TÍMIDO! <br> Sinta-se à vontade para entrar em contato comigo. Estou sempre aberto a discutir novos projetos, ideias criativas ou oportunidades de fazer parte de suas visões."</h4>
-        <br>
-        <button type="submit">Enviar</button>
-      </section>
+    <section id="Contato"> <!-- Seção destinada a fornecer possibilidades de contato -->
+      <h1 class="titulo">Contato</h1> <!-- Título da seção de contato -->
+      <div class="field caixa-texto-centralizada"> <!-- Container para campo de entrada de texto -->
+      <input type="text" id="nome" placeholder="..."> <!-- Campo de entrada de texto  -->
+      <label for="nome">Nome</label> <!-- Rótulo associado ao campo de entrada de texto do nome -->
+      </div>
+      <div class="field caixa-texto-centralizada">
+      <input type="text" id="email" placeholder="...">
+      <label for="nome">E-mail</label>
+      </div>
+      <div class="field caixa-texto-centralizada">
+      <input type="text" id="mensagem" placeholder="..."> 
+      <label for="nome">Mensagem</label>
+      </div>
+      <h5 style="width: 700px; text-align: justify; align-items: center; margin: 0 auto;">"NÃO SEJA TÍMIDO! <br> Sinta-se à vontade para entrar em contato comigo. Estou sempre aberto a discutir novos projetos, ideias criativas ou oportunidades de fazer parte de suas visões."</h4> 
+      <br>
+      <button type="submit">Enviar</button> <!-- Botão para enviar o formulário (ainda não está funcional) -->
+    </section>
 
       <footer>
         <div style="display: flex; justify-content: center;">
           <div style="margin-right: 20px; margin-top: 10px;">
-            <a href="mailto:praxedes_silva@outlook.com">
-              <img src="img/icone_email.png" style="width: 40px; height: auto; margin-right: 10px;">
+            <a href="mailto:praxedes_silva@outlook.com"> <!--Link endereçando para contatar meu e-mail-->
+              <img src="img/icone_email.png" style="width: 40px; height: auto; margin-right: 10px;"> <!--Imagem de um ícone de e-mail para agregar ao link-->
             </a>
-            <a href="mailto:praxedes_silva@outlook.com" style="color: white; text-decoration: none;">praxedes_silva@outlook.com</a>
+            <a href="mailto:praxedes_silva@outlook.com" style="color: white; text-decoration: none;">praxedes_silva@outlook.com</a> <!--novamente o link do e-mail, mas ligado a informação do meu e-mail-->
           </div>
           <div style="margin-right: 20px;">
-            <a href="https://wa.me/5562986012329" target="_blank">
+            <a href="https://wa.me/5562986012329" target="_blank"> <!--Mesma sistemática, mas redirecionando para meu whatsapp-->
             <img src="img/telefone_icone.png" style="width: 38px; height: auto; margin-right: 10px; margin-top: 10px;">
             </a>
             <a href="https://wa.me/5562986012329" target="_blank">
@@ -417,7 +414,7 @@
             </a>
           </div>
           <div style="margin-top: 10px;">
-            <a href="https://www.linkedin.com/in/jo%C3%A3o-bento-481612198/" target="_blank">
+            <a href="https://www.linkedin.com/in/jo%C3%A3o-bento-481612198/" target="_blank"> <!--Mesma sistemática, mas redirecionando para meu linkedin-->
               <img src="img/linkedin_icone.png" style="width: 30px; height: auto; margin-right: 10px;">
             </a>
             <a href="https://www.linkedin.com/in/jo%C3%A3o-bento-481612198/" target="_blank" style="color: white; text-decoration: none;">www.linkedin.com/in/joão-bento-481612198</a>
