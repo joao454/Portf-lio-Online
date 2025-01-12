@@ -1,427 +1,541 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>João Bento</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>João Bento</title>
 
-    <style>
+  <style>
+    html {
+      box-sizing: border-box;
+      /*Definindo que os elementos vão ocupar todo o espaço*/
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      /*Defindo o estilo de fonte global*/
+      font-size: larger;
+      /*Aumentando o tamanho de fonte global para ficar melhor para leitura*/
+    }
 
-      html{
-          box-sizing: border-box;  /*Definindo que os elementos vão ocupar todo o espaço*/
-          font-family: Verdana, Geneva, Tahoma, sans-serif; /*Defindo o estilo de fonte global*/
-          font-size: larger; /*Aumentando o tamanho de fonte global para ficar melhor para leitura*/
-      }
+    body {
+      margin: 0;
+      color: #000000;
+      background-color: #edf8fdc7;
+      /*Cor de fundo com degradê (transição de preto para um tom de azul suave*/
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.671);
+      /*Leve sombreamento das letras para colocar um contorno preto nas letras*/
+    }
 
-      body{
-          margin: 0;
-          color: #FFFFFF;
-          background-image: linear-gradient( #898e91, #5e89df); /*Cor de fundo com degradê (transição de preto para um tom de azul suave*/
-          text-shadow: 0 0 10px rgba(0, 0, 0, 0.8); /*Leve sombreamento das letras para colocar um contorno preto nas letras*/
-      }
-      .container{
-          display: flex;
-          align-items: center;
-      }
+    .container {
+      display: flex;
+      align-items: center;
+    }
 
-      header{
-        background-image: linear-gradient(rgb(77, 75, 75), #898e91);    
-      }
+    header {
+      background-image: linear-gradient(rgb(109, 107, 107), #edf8fdc7);
+    }
 
-      /*Parametrização da imagem que vai estar no cabeçalho como perfil*/
-      #img_header{
-          width: 205px; /*Largura*/
-          height: 200px; /*Altura*/
-          border-radius: 60%; /*Arrendondar a borda em 60%*/
-          margin-top: 10px; /*Margem (distância do elemento do topo)*/
-          margin-left: 10px; /*Margem (distância do elemento da esquerda)*/
-          margin-right: 20px; /*Margem (distância do elemento da direta)*/
-          margin-bottom: 10px; /*Margem (distância do elemento abaixo)*/
-      }
+    /*Parametrização da imagem que vai estar no cabeçalho como perfil*/
+    #img_header {
+      height: 225px;
+      /*Altura*/
+      border-radius: 60%;
+      /*Arrendondar a borda em 60%*/
+      margin-top: 10px;
+      /*Margem (distância do elemento do topo)*/
+      margin-left: 10px;
+      /*Margem (distância do elemento da esquerda)*/
+      margin-right: 10px;
+      /*Margem (distância do elemento da direta)*/
+      margin-bottom: 10px;
+      /*Margem (distância do elemento abaixo)*/
+    }
 
-      /*Estilo do rodapé*/
-      footer {
-        background-color: rgb(20, 52, 119); /*Cor do rodapé no tom de cor harmônico com o fim do degradê da página*/
-          text-align: center; /*Centralizar o texto*/
-          padding: 20px; /*Distância interna*/
-          position: relative; /*O posicionamento do rodapé fica relativo ao elemento acima*/
-          bottom: 0;
-          transition: background-color 0.3s ease; /*Coloca uma transição gradual da cor de fundo de 0,3 seg (quando a pseudoclasse hover estiver mudando a cor de fundo)*/
-      }
-          
-      footer:hover {
-          background-color: rgb(2, 3, 65); /*Altera a cor de fundo do rodapé quando o mouse passar por cima*/
-      }
+    /*Estilo do rodapé*/
+    footer {
+      background-color: #a89f9f;
+      /*Cor do rodapé no tom de cor harmônico com o fim do degradê da página*/
+      text-align: center;
+      /*Centralizar o texto*/
+      padding: 20px;
+      /*Distância interna*/
+      position: relative;
+      /*O posicionamento do rodapé fica relativo ao elemento acima*/
+      bottom: 0;
+      transition: background-color 0.3s ease;
+      /*Coloca uma transição gradual da cor de fundo de 0,3 seg (quando a pseudoclasse hover estiver mudando a cor de fundo)*/
+    }
 
-      /*Parâmetros específicos para o primeiro parágrafo*/
-      .nome-header {
-          margin-top: 0px;
-          margin-bottom: -20px;
-      }
-          
+    footer:hover {
+      background-color: #dadadac7;
+      /*Altera a cor de fundo do rodapé quando o mouse passar por cima*/
+    }
 
-      .menu ul{
-          display: flex; /*Alinha os itens horizontalmente*/
-      }
+    /*Parâmetros específicos para o primeiro parágrafo*/
+    .nome-header {
+      margin-top: 0px;
+      margin-bottom: -20px;
+    }
 
-      /*Parâmetros específicos (já descritos anteriormente) para os itens da lista não ordenada*/
-      .menu ul li{
-          border-radius: 25%;
-          padding: 10px;
-          text-align: center;
-          font-size: larger;
-          margin: 10px; 
 
-      }
+    .menu ul {
+      display: flex;
+      /*Alinha os itens horizontalmente*/
+    }
 
-      ul{
-          list-style-type: none; /*Retirar a bolinha da lista*/
-      }
+    /*Parâmetros específicos (já descritos anteriormente) para os itens da lista não ordenada*/
+    .menu ul li {
+      border-radius: 25%;
+      padding: 10px;
+      text-align: center;
+      font-size: xx-large;
+      margin: 10px;
+    }
 
-      a, a:link {
-          text-decoration: none; /*Retirar o sublinhado do texto com link*/
-          color: white;
-      }
+    ul {
+      list-style-type: none;
+      /*Retirar a bolinha da lista*/
+    }
 
-      li:hover{
-          background-color: #434549;
-          border: white solid 3px; /*Colocar borda no item quando o mouse estiver em cima*/
-          text-decoration: underline; /*Colocar o texto sublinhado quando o mouse estiver em cima*/
-          transition: background-color 0.5s ease; /*Deixa a transição  da cor de fundo mais suave*/
+    a,
+    a:link {
+      text-decoration: none;
+      /*Retirar o sublinhado do texto com link*/
+      color: rgb(0, 0, 0);
+    }
 
-      }
+    li:hover {
+      background-color: #edf8fdc7;
+      border: rgb(0, 0, 0) solid 3px;
+      /*Colocar borda no item quando o mouse estiver em cima*/
+      text-decoration: underline;
+      /*Colocar o texto sublinhado quando o mouse estiver em cima*/
+      transition: background-color 0.5s ease;
+      /*Deixa a transição  da cor de fundo mais suave*/
 
-      .titulo{
-        text-align: center; /*Alinhar texto no centro*/
-        font-size: 3em; /* Tamanho da fonte */
-        margin-top: 50px; /* Espaço superior para separar do elemento que estiver acima */
-        margin-bottom: 10px;
-        text-decoration: underline;
-      }
+    }
 
-      .titulo2{
-        text-align: center;
-        font-size: 2em; 
-        margin-top: 50px; 
-        margin-bottom: 10px;
-      }
+    .titulo {
+      text-align: center;
+      /*Alinhar texto no centro*/
+      font-size: 3em;
+      /* Tamanho da fonte */
+      margin-top: 50px;
+      /* Espaço superior para separar do elemento que estiver acima */
+      margin-bottom: 10px;
+      text-decoration: underline;
+    }
 
-      .topico{
-        margin-top: 60px; 
-      }
+    .titulo2 {
+      text-align: center;
+      font-size: 2em;
+      margin-top: 50px;
+      margin-bottom: 10px;
+    }
 
-      .caixa-texto {
-        flex: 1; /* Ocupa o espaço restante */
-        margin-left: 20px; /* Espaçamento lateral */
-        max-width: 800px; /* Largura máxima do texto */
-        min-width: 200px; /* Largura mínima do texto */
-        text-align: justify; /*Formatar o texto como justificado*/
-      }
+    .topico {
+      margin-top: 60px;
+    }
 
-      .caixa-texto-centralizada{
-        margin: 0 auto; /*Centraliza os itens da classe*/
-        width: 1200px; 
-        text-align: justify;
-        margin-top: 30px;
-      }
+    .caixa-texto {
+      flex: 1;
+      /* Ocupa o espaço restante */
+      margin-left: 20px;
+      /* Espaçamento lateral */
+      max-width: 800px;
+      /* Largura máxima do texto */
+      min-width: 200px;
+      /* Largura mínima do texto */
+      text-align: justify;
+      /*Formatar o texto como justificado*/
+    }
 
-      .texto-colunas{
-        column-count: 2; /*Separa o texto em 2 colunas*/
-        column-gap: 40px; /*Espaço entre as colunas*/
-      }
+    .caixa-texto-centralizada {
+      margin: 0 auto;
+      /*Centraliza os itens da classe*/
+      width: 1200px;
+      text-align: justify;
+      margin-top: 30px;
+    }
 
-      /*Fazer manualmente o ícone de uma bolinha para listar parágrafos (eu optei por não mexer na lista convencional que já está configurada com outro formato por conta do menu)*/
-      .bolinha{
-        display: inline-block; 
-        width: 10px; 
-        height: 10px; 
-        border-radius: 50%; 
-        background-color: rgb(255, 255, 255); 
-        margin-right: 5px;
-      }
+    .texto-colunas {
+      column-count: 2;
+      /*Separa o texto em 2 colunas*/
+      column-gap: 40px;
+      /*Espaço entre as colunas*/
+    }
 
-      #Contato {
-        background-image: linear-gradient(#6689cf, rgb(20, 52, 119)); /*Deixar suave a transição do degradê do body para o rodapé da página*/
-        padding: 30px 0;
-        text-align: center;
-      }
+    /*Fazer manualmente o ícone de uma bolinha para listar parágrafos (eu optei por não mexer na lista convencional que já está configurada com outro formato por conta do menu)*/
+    .bolinha {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: rgb(255, 255, 255);
+      margin-right: 5px;
+    }
 
-      button[type="submit"] {
-          padding: 10px 20px; /* Espaçamento interno */
-          background-color: #5e89df; /* Cor de fundo do botão */
-          color: white; /* Cor do texto do botão */
-          border: none; /* Remover a borda */
-          border-radius: 5px; /* Bordas arredondadas */
-          cursor: pointer; /* Mostrar o cursor de mão ao passar sobre o botão */
-          transition: background-color 0.2s ease; /* Suavizar a transição de cor de fundo */
-      }
+    .degradeCinza {
+      background-image: linear-gradient(#edf8fdc7, #c4bdbd);
+    }
 
-      button[type="submit"]:hover {
-        background-color: rgb(2, 3, 65); /* Cor de fundo do botão ao passar o mouse */
-      }
+    .degradeCinzaReverso {
+      background-image: linear-gradient(#c4bdbd, #eefaffcb);
+    }
 
-      .field{
-        position: relative;
-        max-width: 600px; /* Largura máxima do formulário */
-        margin: 0 auto; /* Centralizar o formulário na tela */  
-        
-      }
+    #Contato {
+      /*Deixar suave a transição do degradê do body para o rodapé da página*/
+      padding: 30px 0;
+      text-align: center;
+    }
 
-      /*Estiliização dos campos do formulário*/
-      .field input{
-        color: #FFFFFF;
-        background: none;
-        padding: 0.625rem;
-        border: 2px solid #030104;
-        width: 100%; 
-        padding: 10px; 
-        margin-bottom: 30px; /* Espaçamento inferior entre os campos */
-        border-radius: 5px; 
-        border: 1px solid #ccc; /* Cor da borda */
-        box-sizing: border-box; /* Garantir que o padding não aumente a largura do campo */
-      }
+    button[type="submit"] {
+      padding: 10px 20px;
+      /* Espaçamento interno */
+      background-color: #5e89df;
+      /* Cor de fundo do botão */
+      color: white;
+      /* Cor do texto do botão */
+      border: none;
+      /* Remover a borda */
+      border-radius: 5px;
+      /* Bordas arredondadas */
+      cursor: pointer;
+      /* Mostrar o cursor de mão ao passar sobre o botão */
+      transition: background-color 0.2s ease;
+      /* Suavizar a transição de cor de fundo */
+    }
 
-      /*Estilo e parametrização do texto que vai ficar dentro dos campos do formulário*/
-      .field label{
-        position: absolute;
-        top: 0;
-        left: 0;
-        translate: 0.625rem 0.325rem; /*Localização incial do texto*/
-        color: #FFFFFF;
-        background-color: transparent; /*Fundo (interior do campo) transparente*/
-        padding-inline: 0.25rem;
-        border: 2px solid transparent;
-        pointer-events: none;
-        transition: translate 250ms,
-                    background-color 250ms,
-                    border-color 250ms; /*Parâmetros da transição do texto para cima do campo*/
-      }
+    button[type="submit"]:hover {
+      background-color: rgb(2, 3, 65);
+      /* Cor de fundo do botão ao passar o mouse */
+    }
 
-      .field:focus-within label,
-      .field:not(:has(:placeholder-shown))
-      label {
-        translate: 0.425rem -1.4rem; /*Localização final do texto que estava dentro do campo do formulário*/
-      }
+    .field {
+      position: relative;
+      max-width: 600px;
+      /* Largura máxima do formulário */
+      margin: 0 auto;
+      /* Centralizar o formulário na tela */
 
-      .field ::placeholder {
-        color: transparent; /*Deixar o texto placeholder transparente*/
-      }
+    }
 
-    </style>
+    /*Estiliização dos campos do formulário*/
+    .field input {
+      color: #FFFFFF;
+      background: none;
+      padding: 0.625rem;
+      border: 2px solid #030104;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 30px;
+      /* Espaçamento inferior entre os campos */
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      /* Cor da borda */
+      box-sizing: border-box;
+      /* Garantir que o padding não aumente a largura do campo */
+    }
+
+    /*Estilo e parametrização do texto que vai ficar dentro dos campos do formulário*/
+    .field label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      translate: 0.625rem 0.325rem;
+      /*Localização incial do texto*/
+      color: #FFFFFF;
+      background-color: transparent;
+      /*Fundo (interior do campo) transparente*/
+      padding-inline: 0.25rem;
+      border: 2px solid transparent;
+      pointer-events: none;
+      transition: translate 250ms,
+        background-color 250ms,
+        border-color 250ms;
+      /*Parâmetros da transição do texto para cima do campo*/
+    }
+
+    .field:focus-within label,
+    .field:not(:has(:placeholder-shown)) label {
+      translate: 0.425rem -1.4rem;
+      /*Localização final do texto que estava dentro do campo do formulário*/
+    }
+
+    .field ::placeholder {
+      color: transparent;
+      /*Deixar o texto placeholder transparente*/
+    }
+  </style>
 
 </head>
+
 <body>
-    
   <!--Cabeçalho da página-->
-    <header class="container">
-        <img id="img_header" src="img/perfil.jpg"> <!--imagem de perfil com a formatação especificada -->
-        <div>
-        <h1 class="nome-header">João Bento da Silva Filho</h1> <!--Textos do cabeçalho-->
-        <h3>20 anos <br>Goiânia, Jardim América</h3>
-        </div>
-        <div class="menu">  <!--Menu de navegação (optei por colocar na tag do header mesmo por se tratar de uma estrutura simples e pequena)-->
-          <ul>
-            <li ><a href="#Portfolio">Portfólio</a></li>
-            <li><a href="#Qualificacoes">Qualificações</a></li>
-            <li><a href="#Sobre mim">Sobre mim</a></li>
-            <li><a href="#Contato">Contato</a></li>
-          </ul> 
-        </div>
-    </header>
+  <header class="container">
+    <img id="img_header" src="img/perfil.jpg"> <!--imagem de perfil com a formatação especificada -->
+    <div>
+      <h1 class="nome-header">João Bento da Silva Filho</h1> <!--Textos do cabeçalho-->
+      <h3>20 anos <br>Goiânia, Jardim América</h3>
+    </div>
+    <div class="menu">
+      <!--Menu de navegação (optei por colocar na tag do header mesmo por se tratar de uma estrutura simples e pequena)-->
+      <ul>
+        <li><a href="#Portfolio"><strong>Portfólio</strong></a></li>
+        <li><a href="#Qualificacoes"><strong>Qualificações</strong></a></li>
+        <li><a href="#Sobre mim"><strong>Sobre mim</strong></a></li>
+        <li><a href="#Contato"><strong>Contato</strong></a></li>
+      </ul>
+    </div>
+  </header>
 
-    <Section> <!--Primeiro seção, referente ao Portfólio-->
-      <h1 class="titulo" id="Portfolio">PORTFÓLIO</h1> <!--Identificação para a opção do menu "Portfólio" redirecionar para este local da página-->
-      <div style="display: flex;">
-        <img style="height: 780px; margin-top: 10px; margin-right: 120px;" src="img/perfil4.png"> <!--Optei por parametrizar esta imagem no próprio HTML, pois as próximas imagens terão sempre características específicas, no fim das contas teria uma classe ou id para cada imagem-->
-        <div style="margin-top: 30px;" class="caixa-texto">
-          <h1 class="topico">Sobre</h1>
-          <p>Meu portfólio é mais do que uma simples coleção de projetos, é um reflexo da minha jornada de aprendizado e das conquistas que obtive ao longo do caminho. Cada projeto representado neste portfólio é o resultado de horas dedicadas ao estudo, prática e aprimoramento do meu conhecimento e das minhas habilidades.</p>
+  <Section class="degradeCinza"> <!--Primeiro seção, referente ao Portfólio-->
+    <h1 class="titulo" id="Portfolio">PORTFÓLIO</h1>
+    <!--Identificação para a opção do menu "Portfólio" redirecionar para este local da página-->
+    <div style="display: flex;">
+      <img style="height: 780px; margin-top: 10px; margin-right: 120px; border-radius: 15%;" src="img/perfil4.png">
+      <!--Optei por parametrizar esta imagem no próprio HTML, pois as próximas imagens terão sempre características específicas, no fim das contas teria uma classe ou id para cada imagem-->
+      <div style="margin-top: 30px;" class="caixa-texto">
+        <h1 class="topico">Sobre</h1>
+        <p>Este portfólio apresenta meus conhecimentos e experiências profissionais ao longo de minha carreira. Mesmo
+          com minha maior experiência em auditoria contábil, estou constantemente expandindo meus conhecimentos em
+          engenharia de software para desenvolver soluções que integrem automação, precisão e eficiência.</p>
 
-          <h1 class="topico">Compromisso com a Excelência!</h1>
-          <p>Desde a concepção inicial até a conclusão de projetos desafiadores, cada desafio se revela como uma chance de superação e aprimoramento. Cada etapa do processo, desde a fase de elaboração e planejamento até a execução, sempre é possível extrair valiosas lições e experiências que contribuem para o crescimento profissional e pessoal.
-          </p>
+        <h1 class="topico">Compromisso com a Excelência!</h1>
+        <p>Desde a concepção inicial até a conclusão de projetos desafiadores, cada desafio se revela como uma chance de
+          superação e aprimoramento. Cada etapa do processo, desde a fase de elaboração e planejamento até a execução,
+          sempre é possível extrair valiosas lições e experiências que contribuem para o crescimento profissional e
+          pessoal.
+        </p>
 
-          <h1 class="topico">Desafios</h1>
-          <p>Mesmo diante dos obstáculos, estou sempre em busca de novas oportunidades para colaborar em projetos interessantes e desafiadores. Minha prioridade é aprender e me desenvolver constantemente, visando sempre oferecer soluções inovadoras para cada desafio.</p>
-        </div>
-      </div>
-
-      <div>
-      <h2 class="titulo2">Desenvolvimento Profissional</h2>
-      <img style="display: block; margin: 0 auto; width: 500px; border: #313236 solid 2px; border-radius: 12%;" src="img/curso.jpg">
-      <p style="text-align: center; font-size: small; margin-top: 0;">Curso de retenção de tributos sobre serviços prestados por pessoa jurídica</p>
-      <div class="caixa-texto-centralizada texto-colunas">
-        <h2>Capacitação Profissional</h2>
-        <p>Como auditor contábil, tive o privilégio de liderar e ministrar cursos de contabilidade para a equipe de auditoria. Essa oportunidade não apenas permitiu compartilhar meu conhecimento, mas também desempenhou um papel fundamental no aprendizado e desenvolvimento contínuo de nossos profissionais.</p>
-        <br>
-        <h2>Habituando conceitos complexos para Rotina Profissional</h2>
-        <p>Durante esses cursos, concentrei-me em transmitir conceitos complexos de forma clara e acessível, utilizando exemplos práticos e estudos de caso relevantes. Meu objetivo era não apenas fortalecer a compreensão técnica da equipe, mas também promover uma mentalidade de aprendizado contínuo e melhoria constante.</p>
-        <h2>Investimento no Desenvolvimento Profissional</h2>
-        <p>Acredito firmemente que investir no desenvolvimento profissional da equipe é essencial para alcançar os mais altos padrões de excelência. Ao capacitar nossos profissionais com as habilidades e os conhecimentos necessários, estamos melhor posicionados para enfrentar os desafios complexos do ambiente competitivo que está em constante evolução.</p>
-        <br>
-        <h2>Cultura de Aprendizado e Colaboração</h2>
-        <p>Além disso, ao criar um ambiente que valoriza e incentiva o aprendizado, promovemos uma cultura de colaboração e crescimento mútuo dentro da equipe.</p>
+        <h1 class="topico">Desafios</h1>
+        <p>Mesmo diante dos obstáculos, estou sempre em busca de novas oportunidades para colaborar em projetos
+          interessantes e desafiadores. Minha prioridade é aprender e me desenvolver constantemente, visando sempre
+          oferecer soluções inovadoras para cada desafio.</p>
       </div>
     </div>
-    </Section>
+  </Section>
 
-    <Section>
-      <h1 class="titulo" ID="Qualificacoes">QUALIFICAÇÕES</h1>
-      <br><br><br>
-      <div style="display: flex;">
+  <Section class="degradeCinzaReverso">
+    <br><br>
+  </Section>
+
+  <Section class="degradeCinza">
+    <div>
+      <h2 class="titulo2">Desenvolvimento Profissional</h2>
+      <img style="display: block; margin: 0 auto; width: 500px; border: #313236 solid 2px; border-radius: 12%;"
+        src="img/curso.jpg">
+      <p style="text-align: center; font-size: small; margin-top: 0;">Curso de retenção de tributos sobre serviços
+        prestados por pessoa jurídica</p>
+      <div class="caixa-texto-centralizada texto-colunas">
+        <h2>Capacitação Profissional</h2>
+        <p>Como auditor contábil, tive o privilégio de liderar e ministrar cursos de auditoria e contabilidade para a
+          equipe de auditoria. Essa oportunidade não apenas permitiu compartilhar meu conhecimento, mas também
+          desempenhou um papel fundamental no aprendizado e desenvolvimento contínuo de nossos profissionais.</p>
+        <br>
+        <h2>Habituando conceitos complexos para Rotina Profissional</h2>
+        <p>Durante esses cursos, concentrei-me em transmitir conceitos complexos de forma clara e acessível, utilizando
+          exemplos práticos e estudos de caso relevantes. Meu objetivo era não apenas fortalecer a compreensão técnica
+          da equipe, mas também promover uma mentalidade de aprendizado contínuo e melhoria constante.</p>
+        <h2>Investimento no Desenvolvimento Profissional</h2>
+        <p>Tenho convicção que investir no desenvolvimento profissional da equipe é essencial para alcançar os mais
+          altos padrões de excelência. Ao capacitar nossos profissionais com as habilidades e os conhecimentos
+          necessários, estamos melhor posicionados para enfrentar os desafios complexos do ambiente competitivo que está
+          em constante evolução.</p>
+        <br>
+        <h2>Cultura de Aprendizado e Colaboração</h2>
+        <p>Além disso, ao criar um ambiente que valoriza e incentiva o aprendizado, promovemos uma cultura de
+          colaboração e crescimento mútuo dentro da equipe.</p>
+      </div>
+    </div>
+  </Section>
+
+  <Section class="degradeCinzaReverso">
+    <br><br>
+  </Section>
+
+  <Section class="degradeCinza">
+    <h1 class="titulo" ID="Qualificacoes">QUALIFICAÇÕES</h1>
+    <br><br><br>
+    <div style="display: flex;">
       <div style="text-align: justify; margin-left: 120px; width: 65%; margin-right: 100px;">
         <h2>Propriedades Intelectuais</h2>
-        <p><span class="bolinha"></span>Conhecimento em Auditoria contábil;</p> <!--Elemento de span para simular uma bolinha de lista não ordenada-->
+        <p><span class="bolinha"></span>Conhecimento em Auditoria contábil;</p>
+        <!--Elemento de span para simular uma bolinha de lista não ordenada-->
         <p><span class="bolinha"></span>Conhecimento em Contabilidade;</p>
-        <p><span class="bolinha"></span>Conhecimento em elaboração e auditoria de Demonstrações Contábeis e notas explicativas;</p>
+        <p><span class="bolinha"></span>Conhecimento em elaboração e auditoria de Demonstrações Contábeis e notas
+          explicativas;</p>
         <p><span class="bolinha"></span>Conhecimento em Conciliação Contábil;</p>
-        <p><span class="bolinha"></span>Conhecimento em Contabilidade aplicada ao Terceiro Setor (Entidades sem fins lucrativos);</p>
+        <p><span class="bolinha"></span>Conhecimento em Contabilidade aplicada ao Terceiro Setor (Entidades sem fins
+          lucrativos);</p>
         <p><span class="bolinha"></span>Conhecimento em Retenção de impostos sobre prestação de serviços;</p>
         <p><span class="bolinha"></span>Conhecimento em Normas de Contabilidade e Auditoria;</p>
         <p><span class="bolinha"></span>Conhecimento em elaboração e revisão de Relatórios;</p>
-        <p><span class="bolinha"></span>Conhecimento avançado em pacote office, especialmente nas ferramentas word e excel;</p>
+        <p><span class="bolinha"></span>Conhecimento avançado em pacote office, especialmente nas ferramentas word e
+          excel;</p>
         <p><span class="bolinha"></span>Conhecimento intermediário em Windows;</p>
         <p><span class="bolinha"></span>Conhecimentos gerais em Controle de Qualidade;</p>
         <p><span class="bolinha"></span>Especialista em Português. Domínio gramatical e ortográfico;</p>
         <p><span class="bolinha"></span>Conhecimentos intermediários em HTML e CSS;</p>
         <p><span class="bolinha"></span>Conhecimentos intermediários em orientação a objetos;</p>
         <p><span class="bolinha"></span>Conhecimentos básicos em Banco de Dados;</p>
-        <p><span class="bolinha"></span>Inglês intermediário.</p>
+        <p><span class="bolinha"></span>Inglês intermediário;</p>
+        <p><span class="bolinha"></span>Curso de Extensão de Psicologia Aplicada à Reabilitação.</p>
+
       </div>
-      <img style="height: 900px;" src="img/perfil3.png">
+      <img style="height: 800px; border-radius: 30%; margin-right: 15px;" src="img/perfil3.png">
+    </div>
+
+    <div style="display: flex; align-items: center;">
+      <img style="height: 600px; border-radius: 10%; margin-left: 5px;" src="img/perfil2.png">
+      <div class="caixa-texto">
+        <h2 class="titulo2">Experiência Profissional</h2>
+        <h1 class="topico">Work7 Auditores Independentes (Atual)</h1>
+        <p>Atualmente, atuo como auditor contábil na empresa Work7 Auditores Independentes, desempenhando um papel
+          integral em auditorias, análises detalhadas de demonstrações financeiras e colaboração eficaz em equipes
+          multidisciplinares. Minhas habilidades em tecnologia, trabalho em equipe, revisão de relatórios e processos de
+          controle interno são fundamentais para aprimorar o grau de qualidade do meu trabalho. Além disso, meu
+          compromisso com o aprendizado contínuo me levou a liderar o desenvolvimento e a ministração de cursos
+          internos, desempenhando um papel fundamental no crescimento e desenvolvimento da equipe.
+        </p>
+
+        <h1 class="topico">Tahto (2022)</h1>
+        <p>Na Tahto, atuei como agente de atendimento Back Office - Procon CIPWEB, onde mantive um contato próximo e
+          eficaz com os clientes. Minhas responsabilidades incluíam realizar análises detalhadas de casos apresentados
+          pelos clientes, investigando questões relacionadas aos direitos do consumidor e garantindo o cumprimento das
+          regulamentações pertinentes. Além disso, trabalhei em estreita colaboração com outras equipes internas para
+          garantir uma resposta eficiente e eficaz às demandas e problemas apontados pelos consumidores dos serviços
+          de internet e telefonia. Minha habilidade de comunicação clara e minha capacidade de análise foram essenciais
+          para lidar com situações desafiadoras de forma eficaz e garantir a satisfação do cliente em todos os momentos.
+        </p>
+
+        <h1 class="topico">Casa Ramalho (2020)</h1>
+        <p>Atuei como vendedor na Casa Ramalho, suprindo demandas rotineiras de organização, auxiliando em atividades
+          que envolviam sistemas financeiros e cadastrais, auxiliando também no recebimento de mercadorias e controle de
+          estoque.</p>
       </div>
+    </div>
 
-      <div style="display: flex; align-items: center;">
-        <img style="height: 600px; border-radius: 10%; margin-left: 10px;" src="img/perfil2.png">
-        <div class="caixa-texto">
-          <h2 class="titulo2">Experiência Profissional</h2>
-          <h1 class="topico">Work7 Auditores Independentes (Atual)</h1>
-          <p>Atualmente, atuo como auditor contábil na empresa Work7 Auditores Independentes, desempenhando um papel integral em auditorias, análise detalhada de demonstrações financeiras e colaboração eficaz em equipes multidisciplinares. Minhas habilidades em tecnologia, trabalho em equipe, revisão de relatórios e processos de controle interno são fundamentais para aprimorar o grau de qualidade do meu trabalho. Além disso, meu compromisso com o aprendizado contínuo me levou a liderar o desenvolvimento e a ministração de cursos internos, desempenhando um papel fundamental no crescimento e desenvolvimento da equipe.
-          </p>
-
-          <h1 class="topico">Tahto (2022)</h1>
-          <p>Na Tahto, atuei como agente de atendimento Back Office - Procon CIPWEB, onde mantive um contato próximo e eficaz com os clientes. Minhas responsabilidades incluíam realizar análises detalhadas de casos apresentados pelos clientes, investigando questões relacionadas aos direitos do consumidor e garantindo o cumprimento das regulamentações pertinentes. Além disso, trabalhei em estreita colaboração com outras equipes internas para garantir uma resposta eficiente e eficaz às demandas dos e problemas apontados pelos consumidores dos serviços de internet e telefonia. Minha habilidade de comunicação clara e minha capacidade de análise foram essenciais para lidar com situações desafiadoras de forma eficaz e garantir a satisfação do cliente em todos os momentos.
-          </p>
-
-          <h1 class="topico">Casa Ramalho (2020)</h1>
-          <p>Atuei como vendedor na Casa Ramalho, suprindo demandas rotineiras de organização, auxiliando em atividades que envolviam sistemas financeiros e cadastrais, auxiliando também no recebimento de mercadorias e controle de estoque.</p>
-        </div>
-      </div>
-
-      <h2 class="titulo2">Formação Acadêmica</h2>
-      <div class="caixa-texto-centralizada texto-colunas">
-        <div>
+    <h2 class="titulo2">Formação Acadêmica</h2>
+    <div class="caixa-texto-centralizada texto-colunas">
+      <div>
         <h2>Engenharia de Software</h2>
         <h4>Instituição de ensino: <span style="font-weight: normal;">UNINTER EDUCACIONAL;</span> </h4>
         <h4>Curso: <span style="font-weight: normal;">Engenharia de Software;</span> </h4>
         <h4>Status: <span style="font-weight: normal;">Em andamento;</span> </h4>
         <h4>Duração: <span style="font-weight: normal;">4 anos;</span> </h4>
         <h4>Previsão de Conclusão: <span style="font-weight: normal;">2027.</span> </h4>
-        </div>  
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <div>
+      </div>
+      <div>
         <h2>Técnico em Química Integrado ao Ensino Médio</h2>
-        <h4>Instituição de ensino: <span style="font-weight: normal;">INSTITUTO FEDERAL DE CIÊNCIA, EDUCAÇÃO E 
-          TECNOLOGIA DE GOIÁS</span> </h4>
+        <h4>Instituição de ensino: <span style="font-weight: normal;">INSTITUTO FEDERAL DE CIÊNCIA, EDUCAÇÃO E
+            TECNOLOGIA DE GOIÁS</span> </h4>
         <h4>Curso: <span style="font-weight: normal;">Técnico em Química Integrado ao Ensino Médio;</span> </h4>
         <h4>Status: <span style="font-weight: normal;">Concluído;</span> </h4>
         <h4>Duração: <span style="font-weight: normal;">3 anos;</span> </h4>
         <h4>Data de Conclusão: <span style="font-weight: normal;">2022.</span> </h4>
-        </div>
-        
-        <h2>Curso de Extensão Psicologia Aplicada à Reabilitação</h2>
-        <h4>Instituição de ensino: <span style="font-weight: normal;">INSTITUTO FEDERAL DE CIÊNCIA, EDUCAÇÃO E 
-          TECNOLOGIA DO RIO GRANDE DO SUL</span> </h4>
-        <h4>Curso: <span style="font-weight: normal;">Psicologia Aplicada à Reabilitação;</span> </h4>
-        <h4>Status: <span style="font-weight: normal;">Concluído;</span> </h4>
-        <h4>Duração: <span style="font-weight: normal;">60 horas;</span> </h4>
-        <h4>Data de Conclusão: <span style="font-weight: normal;">2021.</span> </h4>
       </div>
-    </Section>
+    </div>
+    <br>
+  </Section>
 
-    <section>
-      <h1 class="titulo" ID="Sobre mim">Sobre Mim</h1>
-      <div style="display: flex; ">
-        <img style="height: 600px; margin-top: 90px; border-radius: 30%;" src="img/perfil5.jpg">
-        <div class="caixa-texto">
-          <h1 class="topico">Quem Sou?</h1>
-          <p>Sou um Auditor Contábil apaixonado pela tecnologia da informação, e que busco constantemente aprender e aprimorar minhas habilidades para criar experiências digitais criativas e funcionais. Estou convicto que a combinação entre minha paixão pela tecnologia e minhas experiências profissionais me proporcionam uma perspectiva única, permitindo-me abordar desafios de forma criativa e abrangente. Minha curiosidade em entender as complexidades da mente humana me levou a estudar psicologia e neurociência como um hobby, buscando enriquecer minha compreensão do mundo ao meu redor. Acredito que foco e determinação é a chave para o sucesso. 
-          </p>
-          <h1 class="topico">Objetivos</h1>
-          <p>Meu objetivo principal é desenvolver uma carreira como Engenheiro de Software, buscando construir uma base intelectual sólida. Pretendo aplicar minhas habilidades e experiências adquiridas com a auditoria e contabilidade em áreas da Tecnologia que explorem estes conhecimentos técnicos.
-          </p>
-          <p>Além disso, tenho o objetivo de influenciar positivamente as pessoas ao meu redor e contribuir para o desenvolvimento da comunidade em que estou inserido. Busco oportunidades onde eu possa fazer a diferença, seja através do compartilhamento de conhecimento, da promoção de um ambiente colaborativo ou da implementação de soluções inovadoras. Estou comprometido em utilizar minhas habilidades e recursos para causar um impacto positivo e duradouro no mundo ao meu redor.
-          </p>
-        </div>
+  <Section class="degradeCinzaReverso">
+    <br><br>
+  </Section>
+
+  <Section class="degradeCinza">
+    <h1 class="titulo" ID="Sobre mim">Sobre Mim</h1>
+    <div style="display: flex; ">
+      <img style="height: 700px; margin-top: 50px; margin-right: 120px; margin-left: 20px; border-radius: 35%;"
+        src="img/perfil5.jpg">
+      <div class="caixa-texto">
+        <h1 class="topico">Quem Sou?</h1>
+        <p>Sou um Auditor Contábil apaixonado pela tecnologia da informação, e que busco constantemente aprender e
+          aprimorar minhas habilidades para criar experiências digitais criativas e funcionais. Tenho convicção que a
+          combinação entre minha paixão pela tecnologia e minhas experiências profissionais me proporcionam uma
+          perspectiva única, permitindo-me abordar desafios de forma criativa e abrangente. Acredito que foco e
+          determinação é a chave para o sucesso.
+        </p>
+        <h1 class="topico">Objetivos</h1>
+        <p>Meu objetivo principal é desenvolver uma carreira como Engenheiro de Software, buscando construir uma base
+          intelectual sólida. Pretendo aplicar minhas habilidades e experiências adquiridas com a auditoria e
+          contabilidade em áreas da Tecnologia que explorem estes conhecimentos técnicos.
+        </p>
+        <p>Além disso, tenho o objetivo de influenciar positivamente as pessoas ao meu redor e contribuir para o
+          desenvolvimento da comunidade em que estou inserido. Busco oportunidades onde eu possa fazer a diferença, seja
+          através do compartilhamento de conhecimento, da promoção de um ambiente colaborativo ou da implementação de
+          soluções inovadoras. Estou comprometido em utilizar minhas habilidades e recursos para causar um impacto
+          positivo e duradouro no mundo ao meu redor.
+        </p>
       </div>
+    </div>
 
-      <div style="display: flex;">
-        <div style="text-align: justify; margin-left: 100px; width: 850px; margin-right: 80px;">
-          <h1 class="topico" style="margin-top: 30px;">Hobbies</h1>
-          <h4>Música</h4>
-          <p>
-          Sou apaixonado pela música. Minha  paixão vai além de uma simples apreciação auditiva, ela permeia cada aspecto da minha vida.
-          </p>
-          <p>Como guitarrista, violonista e baixista, encontro uma expressão autêntica e uma conexão emocional em cada nota que toco. Além de tocar instrumentos, também me encanto com o processo criativo da composição musical, onde posso dar vida a novas melodias e contar histórias através dos sons. A música é mais do que um hobby para mim, é uma fonte de inspiração, uma terapia para a alma e uma maneira de me conectar com minhas emoções de uma forma única e poderosa.
-          </p>
-          <h4>Esportes</h4>
-          <p>Gosto de equilibrar minhas responsabilidades da vida com atividades físicas que me proporcionam momentos de descontração e relaxamento. Regularmente, dedico parte do meu tempo livre à prática de futebol e vôlei, esportes que não apenas me mantêm ativo fisicamente, mas também me ajudam a aliviar o estresse acumulado durante a semana. Essas atividades não só promovem minha saúde física, mas também contribuem para o meu bem-estar emocional e mental, proporcionando um equilíbrio saudável entre trabalho e lazer.</p>
+    <div style="display: flex;">
+      <div style="text-align: justify; margin-left: 100px; width: 850px; margin-right: 80px;">
+        <h1 class="topico" style="margin-top: 30px;">Hobbies</h1>
+        <h4>Música</h4>
+        <p>
+          Sou apaixonado pela música. Minha paixão vai além de uma simples apreciação auditiva, ela permeia cada aspecto
+          da minha vida.
+        </p>
+        <p>Como guitarrista, violonista e baixista, encontro uma expressão autêntica e uma conexão emocional em cada
+          nota que toco. Além de tocar instrumentos, também me encanto com o processo criativo da composição musical,
+          onde posso dar vida a novas melodias e contar histórias através dos sons. A música é mais do que um hobby para
+          mim, é uma fonte de inspiração, uma terapia para a alma e uma maneira de me conectar com minhas emoções de uma
+          forma única e poderosa.
+        </p>
+        <h4>Esportes</h4>
+        <p>Gosto de equilibrar minhas responsabilidades da vida com atividades físicas que me proporcionam momentos de
+          descontração e relaxamento. Regularmente, dedico parte do meu tempo livre à prática de futebol e vôlei,
+          esportes que não apenas me mantêm ativo fisicamente, mas também me ajudam a aliviar o estresse acumulado
+          durante a semana. Essas atividades não só promovem minha saúde física, mas também contribuem para o meu
+          bem-estar emocional e mental, proporcionando um equilíbrio saudável entre trabalho e lazer.</p>
 
-          <h1 class="topico" style="margin-top: 50px;">Auto Conhecimento</h1>
-          <p>
-          Aos 18 anos de idade, me despedi da cidade de meus pais e decidi trilhar meu próprio destino. Com coragem e determinação, tomei a decisão de enfrentar os desafios e obstáculos dessa jornada, embarcando em uma busca por autoconhecimento e independência. Foi um passo audacioso, mas fundamental para meu crescimento pessoal e profissional. Ao me lançar nessa aventura, estava disposto a aprender, crescer e explorar novas oportunidades que a vida tinha a oferecer. 
-          </p>
-        </div>
-        <img style="height: 950px; margin-top: 70px;" src="img/perfil6.png">
-        </div>
-    </section>
-
-
-    <section id="Contato"> <!-- Seção destinada a fornecer possibilidades de contato -->
-      <h1 class="titulo">Contato</h1> <!-- Título da seção de contato -->
-      <div class="field caixa-texto-centralizada"> <!-- Container para campo de entrada de texto -->
-      <input type="text" id="nome" placeholder="..."> <!-- Campo de entrada de texto  -->
-      <label for="nome">Nome</label> <!-- Rótulo associado ao campo de entrada de texto do nome -->
+        <h1 class="topico" style="margin-top: 50px;">Auto Conhecimento</h1>
+        <p>
+          Aos 18 anos de idade, me despedi da cidade de meus pais e decidi trilhar meu próprio destino. Com coragem e
+          determinação, tomei a decisão de enfrentar os desafios e obstáculos dessa jornada, embarcando em uma busca por
+          autoconhecimento e independência. Foi um passo audacioso, mas fundamental para meu crescimento pessoal e
+          profissional. Ao me lançar nessa aventura, estava disposto a aprender, crescer e explorar novas oportunidades
+          que a vida tinha a oferecer.
+        </p>
       </div>
-      <div class="field caixa-texto-centralizada">
-      <input type="text" id="email" placeholder="...">
-      <label for="nome">E-mail</label>
-      </div>
-      <div class="field caixa-texto-centralizada">
-      <input type="text" id="mensagem" placeholder="..."> 
-      <label for="nome">Mensagem</label>
-      </div>
-      <h5 style="width: 700px; text-align: justify; align-items: center; margin: 0 auto;">"NÃO SEJA TÍMIDO! <br> Sinta-se à vontade para entrar em contato comigo. Estou sempre aberto a discutir novos projetos, ideias criativas ou oportunidades de fazer parte de suas visões."</h4> 
-      <br>
-      <button type="submit">Enviar</button> <!-- Botão para enviar o formulário (ainda não está funcional) -->
-    </section>
+      <img style="height: 950px; margin-top: 70px;" src="img/perfil6.png">
+    </div>
+  </Section>
 
-      <footer>
-        <div style="display: flex; justify-content: center;">
-          <div style="margin-right: 20px; margin-top: 10px;">
-            <a href="mailto:praxedes_silva@outlook.com"> <!--Link endereçando para contatar meu e-mail-->
-              <img src="img/icone_email.png" style="width: 40px; height: auto; margin-right: 10px;"> <!--Imagem de um ícone de e-mail para agregar ao link-->
-            </a>
-            <a href="mailto:praxedes_silva@outlook.com" style="color: white; text-decoration: none;">praxedes_silva@outlook.com</a> <!--novamente o link do e-mail, mas ligado a informação do meu e-mail-->
-          </div>
-          <div style="margin-right: 20px;">
-            <a href="https://wa.me/5562986012329" target="_blank"> <!--Mesma sistemática, mas redirecionando para meu whatsapp-->
-            <img src="img/telefone_icone.png" style="width: 38px; height: auto; margin-right: 10px; margin-top: 10px;">
-            </a>
-            <a href="https://wa.me/5562986012329" target="_blank">
-            <span style="color: white;">(62) 9 86012329</span>
-            </a>
-          </div>
-          <div style="margin-top: 10px;">
-            <a href="https://www.linkedin.com/in/jo%C3%A3o-bento-481612198/" target="_blank"> <!--Mesma sistemática, mas redirecionando para meu linkedin-->
-              <img src="img/linkedin_icone.png" style="width: 30px; height: auto; margin-right: 10px;">
-            </a>
-            <a href="https://www.linkedin.com/in/jo%C3%A3o-bento-481612198/" target="_blank" style="color: white; text-decoration: none;">www.linkedin.com/in/joão-bento-481612198</a>
-          </div>
-        </div>
-        <p>&copy; 2024 João Bento </p>
-      </footer>
-      
+  <footer id="Contato" class="degradeCinzaReverso">
+    <div style="display: flex; justify-content: center;">
+      <div style="margin-right: 20px; margin-top: 10px;">
+        <a href="mailto:praxedes_silva@outlook.com"> <!--Link endereçando para contatar meu e-mail-->
+          <img src="img/icone_email.png" style="width: 40px; height: auto; margin-right: 10px;">
+          <!--Imagem de um ícone de e-mail para agregar ao link-->
+        </a>
+        <a href="mailto:praxedes_silva@outlook.com"
+          style="color: rgb(0, 0, 0); text-decoration: none;">praxedes_silva@outlook.com</a>
+        <!--novamente o link do e-mail, mas ligado a informação do meu e-mail-->
+      </div>
+      <div style="margin-right: 20px;">
+        <a href="https://wa.me/5562986012329" target="_blank">
+          <!--Mesma sistemática, mas redirecionando para meu whatsapp-->
+          <img src="img/telefone_icone.png" style="width: 38px; height: auto; margin-right: 10px; margin-top: 10px;">
+        </a>
+        <a href="https://wa.me/5562986012329" target="_blank">
+          <span style="color: rgb(0, 0, 0);">(62) 9 86012329</span>
+        </a>
+      </div>
+      <div style="margin-top: 10px;">
+        <a href="https://www.linkedin.com/in/jo%C3%A3o-bento-481612198/" target="_blank">
+          <!--Mesma sistemática, mas redirecionando para meu linkedin-->
+          <img src="img/linkedin_icone.png" style="width: 30px; height: auto; margin-right: 10px;">
+        </a>
+        <a href="https://www.linkedin.com/in/jo%C3%A3o-bento-481612198/" target="_blank"
+          style="color: rgb(0, 0, 0); text-decoration: none;">www.linkedin.com/in/joão-bento-481612198</a>
+      </div>
+    </div>
+    <p>&copy; 2024 João Bento </p>
+  </footer>
+
 </body>
+
 </html>
